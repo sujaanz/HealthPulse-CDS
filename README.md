@@ -1,12 +1,9 @@
----
-
 # 🩺 HealthPulse (MediCase System)
 
 ### Smart Case-Taking & Clinical Decision Support (CDS) System
 
 > **HealthPulse** is an advanced, ABDM-compliant Electronic Health Record (EHR) and Clinical Decision Support platform engineered for modern Outpatient Departments (OPDs). It bridges the gap between traditional clinical workflows and modern AI-driven healthcare intelligence.
 
----
 
 ## 🏗️ System Architecture & Workflow
 
