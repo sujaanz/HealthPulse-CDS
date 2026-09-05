@@ -1,14 +1,16 @@
 ---
 
-# HealthPulse / MediCase • Smart Case Taking & Clinical Decision Support (CDS) System
+# 🩺 HealthPulse (MediCase System)
 
-HealthPulse is an advanced, ABDM-compliant Electronic Health Record (EHR) and Clinical Decision Support system designed to streamline OPD case-taking, triage stratification, and multilingual prescription workflows for modern healthcare institutions.
+### Smart Case-Taking & Clinical Decision Support (CDS) System
+
+> **HealthPulse** is an advanced, ABDM-compliant Electronic Health Record (EHR) and Clinical Decision Support platform engineered for modern Outpatient Departments (OPDs). It bridges the gap between traditional clinical workflows and modern AI-driven healthcare intelligence.
 
 ---
 
 ## 🏗️ System Architecture & Workflow
 
-The application follows a modern decoupled architecture:
+The platform is built on a decoupled, modular architecture designed for high availability and low latency:
 
 ```text
  ┌────────────────────────┐         ┌────────────────────────┐         ┌────────────────────────┐
@@ -19,19 +21,35 @@ The application follows a modern decoupled architecture:
 
 ```
 
-1. **Client Tier (Frontend):** Built with Next.js (React) and Tailwind CSS, featuring role-based dashboards for Doctors, Patients, and Administrators.
-2. **Service Tier (Backend / AI Mock):** Handles clinical keyword parsing, safety checks (drug-allergy interactions), and medical intelligence processing.
-3. **Data Tier:** LocalStorage persistence combined with secure state management for seamless offline/online clinical operations.
+* **Frontend Tier:** Developed using **Next.js (React)** and styled with **Tailwind CSS**, delivering a lightning-fast, responsive user experience.
+* **Backend Tier:** Powered by **Python FastAPI**, handling clinical safety checks, NLP keyword extraction, and automated decision-support logic.
+* **Data Layer:** Secure state persistence combining robust client-side storage with encrypted session handling.
 
 ---
 
-## ✨ Key Features
+## ✨ Core Features & Modules
 
-* **Multi-Role Portal:** Separate tailored dashboards for Doctors, Patients, and System Administrators.
-* **Smart Case-Taking & Triage:** NEWS2-based automated triage stratification (Stable, Moderate, Critical) alongside voice dictation and speaker diarization.
-* **Multilingual Prescriptions:** Real-time prescription generation and text-to-speech reading in Bengali (বাংলা), Hindi (हिन्दी), and English.
-* **Clinical Safety & CDS:** Automated checks for drug-allergy contraindications and pediatric dose calculations.
-* **ABDM / ABHA Compliance:** Integrated digital health ID card views, QR kiosk fast-track check-ins, and FHIR R4 interoperability formatting.
+### 1. Multi-Role Access Control
+
+* **Doctor Dashboard:** Real-time OPD queue sorting, live vitals management, and structured clinical case-taking.
+* **Patient Portal:** Comprehensive medical history timeline, ABHA digital health card generation, and prescription downloading.
+* **Admin Console:** Tamper-proof audit log tracking, role-based permission management, and system-wide configuration controls.
+
+### 2. AI & Clinical Decision Support (CDS)
+
+* **Automated Triage (NEWS2):** Real-time risk stratification (Stable, Moderate, Critical) based on patient vitals.
+* **Differential Diagnosis Engine:** Suggests probable conditions mapped directly to **ICD-11** and **SNOMED CT** standards.
+* **Safety Protocols:** Automated drug-allergy contraindication checks and weight-adjusted pediatric dosage calculations.
+* **Pulmonary Vision:** AI-assisted chest X-ray scanning simulation for rapid thoracic analysis.
+
+---
+
+## 🛠️ Tech Stack
+
+* **Frontend:** Next.js, React, Tailwind CSS, Lucide React Icons
+* **Backend:** Python, FastAPI, Uvicorn, Pydantic
+* **AI & Utilities:** Web Speech API, QRCodeSVG (Digital ID rendering)
+* **Standards Compliance:** ABDM (Ayushman Bharat Digital Mission), FHIR R4 Interoperability
 
 ---
 
@@ -40,18 +58,54 @@ The application follows a modern decoupled architecture:
 ### Prerequisites
 
 * Node.js (v18 or higher)
-* Python (v3.9 or higher, optional for backend services)
+* Python (v3.9 or higher)
 
-### Frontend Setup
+### 1. Backend Setup (Python FastAPI)
 
-1. Clone the repository and navigate to the project directory:
+1. Navigate to your backend directory (or create a backend folder):
+```bash
+cd backend
+
+```
+
+
+2. Create and activate a virtual environment:
+```bash
+python -m venv venv
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+
+```
+
+
+3. Install required Python packages:
+```bash
+pip install fastapi uvicorn pydantic axios
+
+```
+
+
+4. Run the backend server:
+```bash
+uvicorn main:app --reload --port 8000
+
+```
+
+
+*The backend will be live at `http://localhost:8000`.*
+
+### 2. Frontend Setup (Next.js)
+
+1. Open a new terminal and navigate to the frontend directory:
 ```bash
 cd frontend
 
 ```
 
 
-2. Install dependencies:
+2. Install frontend dependencies:
 ```bash
 npm install
 
@@ -65,12 +119,22 @@ npm run dev
 ```
 
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+*Access the application in your browser at `http://localhost:3000`.*
 
 ---
 
 ## 🔑 Demo Access Credentials
 
-* **Doctor Portal:** `dr.ananya@healthpulse.com` | Password: `doctor123`
-* **Patient Portal:** `priya.das@healthpulse.com` | Password: `patient123`
-* **Admin Console:** `admin@healthpulse.com` | Password: `admin123`
+| Role | Email Address | Password |
+| --- | --- | --- |
+| **Doctor** | `dr.ananya@healthpulse.com` | `doctor123` |
+| **Patient** | `priya.das@healthpulse.com` | `patient123` |
+| **Admin** | `admin@healthpulse.com` | `admin123` |
+
+---
+
+## 🎯 Future Roadmap
+
+* [ ] Migration from local storage to **MongoDB Atlas / PostgreSQL** cloud database.
+* [ ] Implementation of **JWT Authentication** and password encryption (Bcrypt).
+* [ ] Automated **WhatsApp & SMS push notifications** for medication alarms and follow-ups.
