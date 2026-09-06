@@ -40,7 +40,7 @@ body {
     margin: 12mm 15mm;
   }
 
-  /* সাইডবার, হেডার, প্রিন্ট অপশন বাটন বা পপআপ প্রিন্টে সম্পূর্ণ হাইড থাকবে */
+  /* Will remain completely hidden in the sidebar, header, print option button, or popup print */
   aside,
   header,
   nav,
@@ -65,7 +65,7 @@ body {
     margin: 0 !important;
   }
 
-  /* প্রেসক্রিপশন শিট পুরো পাতা জুড়ে নিখুঁতভাবে বসবে */
+  /* The prescription sheet will fit perfectly across the entire page */
   .printable-sheet {
     display: block !important;
     width: 100% !important;
