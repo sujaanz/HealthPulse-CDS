@@ -15,12 +15,12 @@ from .schemas import (
 )
 from .ai_engine import extract_clinical_data
 
-# ডাটাবেস টেবিল তৈরি
+# Creating a database table
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="HealthPulse Clinical Automation API", version="2.0")
 
-# CORS কনফিগারেশন (Next.js ফ্রন্টএন্ড কানেক্ট করার জন্য)
+# CORS configuration (for connecting to Next.js frontend)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
