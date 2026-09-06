@@ -43,7 +43,7 @@ Output strictly a valid JSON object matching this schema:
 """
 
 def extract_clinical_data(narrative: str, language: str) -> dict:
-    # ১. প্রথমে জেমিনি দিয়ে চেষ্টা করবে
+    #1. Try Gemini first.
     if api_key and api_key != "your_gemini_api_key_here":
         try:
             model = genai.GenerativeModel("gemini-1.5-flash")
@@ -57,7 +57,7 @@ def extract_clinical_data(narrative: str, language: str) -> dict:
         except Exception as e:
             print(f"Gemini call failed, falling back to mock response: {e}")
 
-    # ২. যদি নেটওয়ার্ক বা API Key ফেইল করে, ব্যাকআপ রেসপন্স দেবে (অ্যাপ কখনো ক্র্যাশ করবে না)
+    # 2. If the network or API key fails, a backup response will be provided (the app will never crash)
     return {
         "structured_info": {
             "chief_complaint": "High grade fever with associated weakness",
