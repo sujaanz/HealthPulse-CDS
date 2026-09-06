@@ -15,7 +15,7 @@ export default function SpeechInput({ language, onTranscriptChange }: SpeechProp
       const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
       const recognizer = new SpeechRecognition();
       recognizer.continuous = true;
-      recognizer.interimResults = false; // রিপিট রোধ করার জন্য false
+      recognizer.interimResults = false; // false to prevent repeats
 
       recognizer.onresult = (event: any) => {
         let finalChunk = "";
